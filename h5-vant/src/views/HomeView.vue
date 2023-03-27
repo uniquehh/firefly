@@ -1,30 +1,24 @@
 <template>
   <div class="content">
-    <div>{{ name }}</div>
-    <div>
-      <van-button type="primary" @click="operation('点赞关注')"
-        >点我更改信息</van-button
-      >
-    </div>
-    <div>
-      <van-field v-model="num" label="数量" /><van-button
-        type="primary"
-        @click="getList"
-        >发送请求获取笑话</van-button
-      >
-    </div>
-    <div style="width: 100%">
-      <van-list>
-        <van-cell v-for="item in list" :key="item" :title="item" />
-      </van-list>
-    </div>
-    <van-button loading type="info" loading-text="加载中..." />
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+      <van-tabbar-item  color="#409EFF">
+        <span>派单</span>
+        <template #icon>
+          <div class="test">
+            <van-icon size="30" color="#1989fa" name="add"></van-icon>
+          </div>
+          <van-icon name="add"></van-icon>
+          <!-- <img :src="props.active ? icon.active : icon.inactive" /> -->
+        </template>
+      </van-tabbar-item>
+      <van-tabbar-item icon="setting-o" @click="getList">导航</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import testApi from "@/api/test";
 export default {
   computed: {
     ...mapState("store_modular", ["name"]),
@@ -33,29 +27,40 @@ export default {
     return {
       num: 0,
       list: [],
+      active: 0,
+      icon: {
+        active: 'https://img01.yzcdn.cn/vant/user-active.png',
+        inactive: 'https://img01.yzcdn.cn/vant/user-inactive.png',
+      },
     };
   },
   methods: {
     ...mapMutations("store_modular", ["operation"]),
     getList() {
-      if(this.num==0){
-        this.$toast.fail("数量不能为0");
-        return
-      }
-      this.$toast.loading({
-  message: '加载中...',
-  forbidClick: true,
-  duration:0
-});
-      testApi
-        .getListAPI({ num: this.num })
-        .then((res) => (this.list = res.data.data))
-        .catch((err) => console.log(err))
-        .finally(()=>{this.$toast.clear()});
+      console.log(this.$router)
+      this.$router.push({name:'about'})
     },
   },
 };
 </script>
 
 <style>
+.test{
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px -2px 10px -6px gray;
+  position: absolute;
+  top: -15px;
+  left: -6px;
+  z-index: 2;
+}
+
+.van-tabbar-item{
+  position: relative;
+}
 </style>
