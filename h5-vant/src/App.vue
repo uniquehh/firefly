@@ -5,6 +5,7 @@
 </template>
 
 <style lang="less">
+@import './assets/hnstyle.css';
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
 dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
 pre, /* text formatting elements 文本格式元素 */
@@ -19,5 +20,11 @@ th, td {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+.page{
+  background-color: #F6F6F6;
+  width: 100%;
+  height: 100vh;
+  font-size: 12px;
 }
 </style>

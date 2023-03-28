@@ -1,51 +1,55 @@
 <template>
-  <div class="content">
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+  <div class="page">
+    <!-- 顶部导航栏 -->
+    <topNav :showLeftArrow="false" navTitle="OA"></topNav>
+    <!-- 功能模块组件 -->
+    <div v-show="tabActive==0"><GongNeng></GongNeng></div>
+    <!-- 报表模块组件 -->
+
+    <!-- 底部tabbar -->
+    <van-tabbar v-model="tabActive">
+      <van-tabbar-item icon="apps-o">
+        功能
+      </van-tabbar-item>
       <van-tabbar-item  color="#409EFF">
         <span>派单</span>
         <template #icon>
-          <div class="test">
+          <!-- 自定义突起图标样式 -->
+          <div class="myMidTabbar">
             <van-icon size="30" color="#1989fa" name="add"></van-icon>
           </div>
+          <!-- 占位的图标 -->
           <van-icon name="add"></van-icon>
-          <!-- <img :src="props.active ? icon.active : icon.inactive" /> -->
         </template>
       </van-tabbar-item>
-      <van-tabbar-item icon="setting-o" @click="getList">导航</van-tabbar-item>
+      <van-tabbar-item icon="chart-trending-o">
+        报表
+      </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import GongNeng from "@/components/GongNeng.vue";
 export default {
+  components:{ GongNeng, },
   computed: {
     ...mapState("store_modular", ["name"]),
   },
   data() {
     return {
-      num: 0,
-      list: [],
-      active: 0,
-      icon: {
-        active: 'https://img01.yzcdn.cn/vant/user-active.png',
-        inactive: 'https://img01.yzcdn.cn/vant/user-inactive.png',
-      },
+      tabActive: 0,
     };
   },
   methods: {
     ...mapMutations("store_modular", ["operation"]),
-    getList() {
-      console.log(this.$router)
-      this.$router.push({name:'about'})
-    },
   },
 };
 </script>
 
-<style>
-.test{
+<style lang="less" scoped>
+.myMidTabbar{
   width: 36px;
   height: 36px;
   display: flex;
@@ -59,7 +63,6 @@ export default {
   left: -6px;
   z-index: 2;
 }
-
 .van-tabbar-item{
   position: relative;
 }

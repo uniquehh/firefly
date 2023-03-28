@@ -11,11 +11,10 @@ const router = new VueRouter({
   routes
 })
 //全局路由守卫
-router.beforeEach((to,from,next)=>{
-  console.log(to,from);
-  next()
-})
-router.afterEach((to,from)=>{
-  console.log(to,from);
-})
+// router.beforeEach((to, from, next) => {
+//   next()
+// })
+// router.afterEach((to, from) => {
+
+// })
 export default router

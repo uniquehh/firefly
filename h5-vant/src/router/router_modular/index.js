@@ -2,16 +2,24 @@
 const router_modular = [
     {
         path: '/',
-        name: 'home',
-        component: () => import('@/views/HomeView')
+        name: 'IndexPage',
+        component: () => import('@/views/IndexPage')
     },
     {
-        path: '/about',
-        name: 'about',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '@/views/AboutView.vue')
+        path: '/baoBei',
+        name: 'baoBei',
+        component: () => import('@/views/baoBei.vue')
+    },
+    {
+        path: '/keHu',
+        name: 'keHu',
+        component: () => import('@/views/keHu.vue')
+    },
+    {
+        path: '/chengDan',
+        name: 'chengDan',
+        component: () => import('@/views/chengDan.vue')
     }
+    
 ]
 export default router_modular
