@@ -25,6 +25,7 @@ th, td {
   background-color: #F6F6F6;
   width: 100%;
   height: 100vh;
-  font-size: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 </style>

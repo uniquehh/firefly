@@ -1,4 +1,36 @@
+.hn-bnt-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+}
 /* 功能模块 组件样式 */
 .hn-gntitle{
   padding: 10px;
+}
+/* 报备列表item */
+.hn-bblist-item{
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hn-bblistil-name{
+  margin-bottom: 5px;
+}
+.hn-bblistil-tagtel {
+  display: flex;
+  align-items: center;
+}
+.hn-bblistilt-tel{
+  color: #979A9E;
+}
+.hn-bblisti-right {
+  color: #979A9E;
+  font-size: 10px;
+  text-align: center;
+}
+.hn-bblistir-text{
+  margin-bottom: 5px;
 }

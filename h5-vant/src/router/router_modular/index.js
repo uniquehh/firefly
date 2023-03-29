@@ -19,6 +19,11 @@ const router_modular = [
         path: '/chengDan',
         name: 'chengDan',
         component: () => import('@/views/chengDan.vue')
+    },
+    {
+        path: '/baoBeiList',
+        name: 'baoBeiList',
+        component: () => import('@/views/baoBeiList.vue')
     }
     
 ]

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar fixed placeholder z-index="999" :title="navTitle">
+    <van-nav-bar fixed placeholder z-index="99" :title="navTitle">
       <template #left>
         <van-icon @click="routerBack" v-show="showLeftArrow" name="arrow-left" size="20" />
       </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div>
     <div class="hn-gntitle">功能管理</div>
     <van-grid square>
       <van-grid-item v-for="(item,index) in gridItems" :key="index" 

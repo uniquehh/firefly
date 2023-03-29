@@ -45,6 +45,9 @@ export default {
   methods: {
     ...mapMutations("store_modular", ["operation"]),
   },
+  mounted() {
+    
+  },
 };
 </script>
 

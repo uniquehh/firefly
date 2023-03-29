@@ -10,24 +10,15 @@ module.exports = defineConfig({
     hot: true,
     https: false, 
     proxy: { //配置多个代理
-      "/testIp": {
-          target: "http://197.0.0.1:8088",
-          changeOrigin: true,
-          ws: true,//websocket支持
-          secure: false,
-          pathRewrite: {
-              "^/testIp": "/"
-          }
-      },
-      "/elseIp": {
-          target: "http://197.0.0.2:8088",
-          changeOrigin: true,
-          //ws: true,//websocket支持
-          secure: false,
-          pathRewrite: {
-              "^/elseIp": "/"
-          }
-      },
+    "/api": {
+      target: "http://197.0.0.1:8088",
+      changeOrigin: true,
+      ws: true,//websocket支持
+      secure: false,
+      pathRewrite: {
+        "^/api": "/"
+      }
+    },
   }
   },
   configureWebpack:config=>{
