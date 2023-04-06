@@ -4,12 +4,12 @@
       <topNav navTitle="报备"></topNav>
       <!-- 表单区域 -->
       <div class="hn-bb-form">
-        <inputPkPop :meta="laiYuan"></inputPkPop>
+        <inputPkPop :meta="laiYuan" label="来源" required placeholder="请选择客户来源"></inputPkPop>
         <van-field label="姓名" required placeholder="请输入姓名" />
-        <inputPkPop :meta="sex"></inputPkPop>
-        <inputPkPop :meta="gjStatus"></inputPkPop>
-        <inputPkPop :meta="zxShi"></inputPkPop>
-        <inputPkPop :meta="yiYuan"></inputPkPop>
+        <inputPkPop :meta="sex" label="性别" required placeholder="请选择性别"></inputPkPop>
+        <inputPkPop :meta="gjStatus" label="跟进状态" required placeholder="请选择跟进状态"></inputPkPop>
+        <inputPkPop :meta="zxShi" label="咨询师" placeholder="请选择咨询师"></inputPkPop>
+        <inputPkPop :meta="yiYuan" label="医院" required placeholder="请选择医院"></inputPkPop>
         <van-field label="年龄" placeholder="请输入年龄" />
         <van-field label="电话" required placeholder="请输入电话" />
         <van-field label="微信" placeholder="请输入微信" />
@@ -33,8 +33,6 @@ export default {
     return {
       // 各组件的配置
       laiYuan: {
-        label: "来源",
-        placeholder: "请选择客户来源",
         data: [
           {
             text: '浙江',
@@ -50,30 +48,18 @@ export default {
             ],
           },
         ],
-        required:true
       },
       sex: {
-        label: "性别",
-        placeholder: "请选择性别",
         data: ["男","女"],
-        required: true
       },
       gjStatus: {
-        label: "跟进状态",
-        placeholder: "请选择跟进状态",
         data: ["已跟进", "待跟进"],
-        required: true
       },
       zxShi: {
-        label: "咨询师",
-        placeholder: "请选择咨询师",
         data: ["咨询师1", "咨询师2"],
       },
       yiYuan: {
-        label: "医院",
-        placeholder: "请选择医院",
         data: ["医院1", "医院2"],
-        required: true
       },
       // 存储表单数据
       formData: {

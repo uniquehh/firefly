@@ -1,11 +1,11 @@
 <template>
   <div>
     <van-field is-link 
-      :label="peiZhi.label" 
+      :label="label" 
       v-model="selectVal" 
-      :required="peiZhi.required" 
+      :required="required" 
       readonly input-align="right" 
-      :placeholder="peiZhi.placeholder"
+      :placeholder="placeholder"
       @click="peiZhi.show = true"
      />
     <van-popup v-model="peiZhi.show" round position="bottom">
@@ -25,7 +25,20 @@ export default {
     meta: {
       type:Object,
       default: ()=>{},
-    }
+    },
+    label: {
+      type: String,
+      default:"",
+    },
+    placeholder: {
+      type: String,
+      default:"",
+    },
+    required: {
+      type: Boolean,
+      default:false,
+    },
+
   },
   watch: {
     meta: {
@@ -56,6 +69,7 @@ export default {
               },
             ],
           }]
+
        * 数据为数组包对象，有values关键字则为多列选择
           columns: [
             // 第一列
@@ -73,10 +87,7 @@ export default {
       peiZhi: {
         data: [],//picker数据
         show: false,//是否显示picker
-        required: false,//是否显示必选
-        placeholder: "",//提示文本
-        label: "",//picker标题
-        loading:false,//是否显示加载状态，默认不显示
+        loading:false,//是否显示加载状态
         pkType:1,//picker选择器类型，1为单列，2为多列，3为级联选择器，默认为单列选择器,此配置会影响数据的处理
       },
       selectVal: "",//picker确认选择的值
@@ -91,7 +102,7 @@ export default {
         this.selectVal = value
       } else if (this.peiZhi.pkType == 2 && typeof value == "object") {
         this.selectVal = value.join('-')
-      } else {
+      } else { //不传pkType，最终视作级联选择器处理数据
         this.selectVal = value.join('-')
       }
       this.peiZhi.show = false
