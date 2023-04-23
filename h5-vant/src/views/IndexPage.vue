@@ -2,10 +2,14 @@
   <div class="page">
     <!-- 顶部导航栏 -->
     <topNav :showLeftArrow="false" navTitle="OA"></topNav>
-    <!-- 功能模块组件 -->
-    <div v-show="tabActive==0"><GongNeng></GongNeng></div>
+    <!-- 功能管理模块组件 -->
+    <div v-show="tabActive==0">
+      <GongNeng></GongNeng>
+      <!-- 退出登录按钮 -->
+      <div class="hn-logout-btn">退出登录</div>
+    </div>
     <!-- 报表模块组件 -->
-
+    
     <!-- 底部tabbar -->
     <van-tabbar v-model="tabActive">
       <van-tabbar-item icon="apps-o">
@@ -35,7 +39,7 @@ import GongNeng from "@/components/GongNeng.vue";
 export default {
   components:{ GongNeng, },
   computed: {
-    ...mapState("store_modular", ["name"]),
+
   },
   data() {
     return {
@@ -43,10 +47,10 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("store_modular", ["operation"]),
+
   },
   mounted() {
-    console.log(this.name)
+
   },
 };
 </script>

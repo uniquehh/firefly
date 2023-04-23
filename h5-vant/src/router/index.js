@@ -1,10 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import router_modular from '@/router/router_modular/index.js'
 Vue.use(VueRouter)
 
 const routes = [
-  ...router_modular
+  {
+    path: '/',
+    name: 'IndexPage',
+    component: () => import('@/views/IndexPage')
+  },
+  {
+    path: '/baoBei',
+    name: 'baoBei',
+    component: () => import('@/views/baoBei.vue')
+  },
+  {
+    path: '/keHu',
+    name: 'keHu',
+    component: () => import('@/views/keHu.vue')
+  },
+  {
+    path: '/chengDan',
+    name: 'chengDan',
+    component: () => import('@/views/chengDan.vue')
+  },
+  {
+    path: '/baoBeiList',
+    name: 'baoBeiList',
+    component: () => import('@/views/baoBeiList.vue')
+  }
+    
 ]
 
 const router = new VueRouter({

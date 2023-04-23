@@ -1,13 +1,52 @@
-.hn-bnt-fixed {
+.hn-btn-fixed {
   position: fixed;
   left: 0;
-  bottom: 10px;
+  bottom: 0;
   width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: white;
 }
 /* 功能模块 组件样式 */
 .hn-gntitle{
   padding: 10px;
 }
+/* 退出登录按钮 */
+.hn-logout-btn{
+  margin-top: 100px;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  background-color: #F8F8F8;
+}
+
+/* 报备 */
+.hn-input-cell{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 12px 8px;
+  border-bottom: 1px solid #ebedf0;
+}
+.hn-inputcl-star{
+  margin-right: 2px;
+}
+.hn-inputc-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hn-inputcr-plhd{
+  color: #C8C9CC;
+}
+.hn-inputcr-val{
+  max-width: 230px;
+}
+
 /* 报备列表item */
 .hn-bblist-item{
   padding: 10px;
@@ -15,6 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .hn-bblistil-name{
   margin-bottom: 5px;

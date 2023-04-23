@@ -2,7 +2,7 @@
   <div class="page">
     <topNav navTitle="报备列表"></topNav>
     <div class="hn-bblist-list">
-      <div class="hn-bblist-item" @click="getList">
+      <div class="hn-bblist-item" v-for="item in 3" :key="item">
         <div class="hn-bblisti-left">
           <div class="hn-bblistil-name">杖罚参</div>
           <div class="hn-bblistil-tagtel">
@@ -19,18 +19,14 @@
   </div>
 </template>
 <script>
-import { Paging } from '../api/paging'
 export default {
   data() {
     return {
-      list:new Paging('/api/asd/dasd',{})
+
     }
   },
   methods: {
-    getList() {
-      console.log(this.list.getData())
-      
-    },
+
   }
 }
 </script>

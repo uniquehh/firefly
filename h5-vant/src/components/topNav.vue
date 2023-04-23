@@ -2,7 +2,7 @@
   <div>
     <van-nav-bar fixed placeholder z-index="99" :title="navTitle">
       <template #left>
-        <van-icon @click="routerBack" v-show="showLeftArrow" name="arrow-left" size="20" />
+        <van-icon @click="hnRouterBack" v-show="showLeftArrow" name="arrow-left" size="20" />
       </template>
       <template #right>
         <van-icon name="ellipsis" size="25" dot />
@@ -28,9 +28,6 @@ export default {
     }
   },
   methods: {
-    routerBack() {
-      this.$router.back()
-    },
   }
 }
 </script>

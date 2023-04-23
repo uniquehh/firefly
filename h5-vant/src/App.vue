@@ -27,5 +27,12 @@ th, td {
   height: 100vh;
   font-size: 14px;
   box-sizing: border-box;
+  color: #646566;
+}
+.van-cell::after{
+  border-bottom: 1px solid #ebedf0 !important;
+  transform: unset !important;
+  right: 0 !important;
+  left: 0 !important;
 }
 </style>
