@@ -4,17 +4,8 @@
       <topNav navTitle="报备"></topNav>
       <!-- 表单区域 -->
       <div class="hn-bb-form">
-        <div class="hn-input-cell">
-          <div class="hn-inputc-left">
-            <span class="hn-inputcl-star">*</span>
-            <span>来源</span>
-          </div>
-          <div class="hn-inputc-right">
-            <div class="hn-inputcr-plhd">请选择来源</div>
-            <!-- <div class="hn-inputcr-val">这是选择的值</div> -->
-            <van-icon name="arrow" size="15" />
-          </div>
-        </div>
+        <inputPkPop label="来源" placeholder="请选择来源"></inputPkPop>
+        
         <van-field label="姓名" required placeholder="请输入姓名" />
         <div class="hn-input-cell">
           <div class="hn-inputc-left">

@@ -24,10 +24,9 @@ Object.keys(methods).forEach((item) => {
 // 顶部导航栏组件
 import topNav from './components/topNav.vue'
 Vue.component('topNav', topNav)
-
-
-
-
+// picker选择器组件
+import inputPkPop from './components/inputPkPop.vue'
+Vue.component('inputPkPop',inputPkPop)
 // 全局组件注册end
 
 let vm = new Vue({
