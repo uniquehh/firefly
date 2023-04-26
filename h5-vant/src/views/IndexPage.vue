@@ -2,17 +2,12 @@
   <div class="page">
     <!-- 顶部导航栏 -->
     <topNav :showLeftArrow="false" navTitle="OA"></topNav>
-    <!-- 功能管理模块组件 -->
-    <div v-show="tabActive==0">
-      <GongNeng></GongNeng>
-      <!-- 退出登录按钮 -->
-      <div class="hn-logout-btn">退出登录</div>
-    </div>
-    <!-- 报表模块组件 -->
-    
+
+    <router-view></router-view>
+
     <!-- 底部tabbar -->
-    <van-tabbar v-model="tabActive">
-      <van-tabbar-item icon="apps-o">
+    <van-tabbar route v-model="tabActive">
+      <van-tabbar-item to="/gongNeng" icon="apps-o">
         功能
       </van-tabbar-item>
       <van-tabbar-item  color="#409EFF">
@@ -26,7 +21,7 @@
           <van-icon name="add"></van-icon>
         </template>
       </van-tabbar-item>
-      <van-tabbar-item icon="chart-trending-o">
+      <van-tabbar-item to="/baoBiao" icon="chart-trending-o">
         报表
       </van-tabbar-item>
     </van-tabbar>
@@ -35,9 +30,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import GongNeng from "@/components/GongNeng.vue";
 export default {
-  components:{ GongNeng, },
   computed: {
 
   },
@@ -48,6 +41,9 @@ export default {
   },
   methods: {
 
+  },
+  created(){
+    this.hnRouterPush('/gongNeng')
   },
   mounted() {
 

@@ -9,6 +9,10 @@ import './assets/iconfont/iconfont.css'
 import axios from 'axios'
 import methods from '@/util/methods'
 import myDirective from './util/myDirective.js'
+import md5 from 'js-md5';
+
+Vue.prototype.$md5 = md5;
+
 Vue.use(Vant);
 Vue.config.productionTip = false
 

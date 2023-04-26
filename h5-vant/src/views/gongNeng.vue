@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="hn-gntitle">功能管理</div>
+
     <van-grid square>
       <van-grid-item v-for="(item,index) in gridItems" :key="index" 
        :text="item.text" :to="item.path">
@@ -9,6 +10,9 @@
         </template>
       </van-grid-item>
     </van-grid>
+    
+    <div class="hn-logout-btn">退出登录</div>
+
   </div>
 </template>
 <script>
