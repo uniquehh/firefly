@@ -114,6 +114,7 @@ export default {
 .hn-login-inp{
   background-color: rgba(64, 158, 255, 0.6);
   margin-bottom: 20px;
+  color: white;
   ::v-deep .van-field__label{
     color: white;
   }

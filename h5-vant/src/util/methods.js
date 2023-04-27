@@ -4,6 +4,7 @@ import vm from '@/main';
 const methods = {
   // 退出登录
   loginOut(req=true){
+    // req--是否走接口得退出登录
     if(req){
       methods.request("/auth/logout",{},'post').then((res)=>{
         if(res.code==0){
@@ -15,7 +16,7 @@ const methods = {
     }else{
       localStorage.clear()
       location.href = '/login'
-      window.location.reload()//刷新页面重置vuex的值
+      // window.location.reload()//刷新页面重置vuex的值
     }
   },
   // 请求数据

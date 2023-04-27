@@ -14,7 +14,7 @@
         <van-field label="备注" placeholder="请输入备注" />
       </div>
       <div class="hn-btn-fixed">
-        <van-button size="small" @click="hnRouterPush('/baoBeiList')" round block type="info">提交</van-button>
+        <van-button size="small" @click="hnRouterPush('/baoBeiList')" block type="info">派单</van-button>
       </div>
     </div>
   </div>

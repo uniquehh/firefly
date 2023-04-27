@@ -11,7 +11,7 @@
       </van-grid-item>
     </van-grid>
     
-    <div class="hn-logout-btn">退出登录</div>
+    <div class="hn-logout-btn" @click="loginOut">退出登录</div>
 
   </div>
 </template>
