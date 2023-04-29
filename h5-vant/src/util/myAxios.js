@@ -1,6 +1,7 @@
 import axios from 'axios'
 const urlConfig = require('./config')
 import methods from './methods' 
+import vm from '@/main'
 
 
 const axiosInstance = axios.create({
@@ -22,13 +23,10 @@ axiosInstance.interceptors.request.use((config) => {
 
   // 每个请求都携带token
   // console.log(config)
-  if (localStorage.getItem('userInfo')) {
+  if (localStorage.getItem('isLogin')) {
     config.headers['token'] = JSON.parse(localStorage.getItem('userInfo')).token
   }
 
-  if (config.method == 'put') {
-    // config.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset:utf-8'
-  }
   return config;
 }, (error) => {
   return Promise.reject(error,'请求拦截器走了错误入口');
@@ -39,20 +37,20 @@ axiosInstance.interceptors.response.use((res) => {
   // console.log(res, 'axios')
   if (res.status == 200) { //res第一层是 axios 返回的
     if (res.data.code == -1) {
-      // methods.hnMsg(res.data.data.errMsg,'error')
+      vm.$toast(res.data.data.errMsg)
     }
     if(res.data.code==20001){
-      // methods.hnMsg(res.data.data.errMsg)
-      // methods.loginOut()
+      vm.$toast(res.data.data.errMsg)
+      methods.loginOut()
     }
 
     
     return res.data //res.data是  axios 请求目标接口返回的数据
   } else {
-    // methods.hnMsg('接口请求失败',res)
+    vm.$toast('接口请求失败')
   }
 }, (error) => {
-  // methods.hnMsg('服务器异常,请求失败','error')
+  vm.$toast('服务器异常,请求失败')
   return Promise.reject(error);
 })
 

@@ -4,6 +4,32 @@
   </div>
 </template>
 
+<script>
+// import { mapState,mapMutations } from 'vuex'
+export default {
+  data() {
+    return {
+
+    }
+  },
+  computed: {
+    // ...mapState('user', ['userInfo','isLogin']),
+  },
+  mounted() {
+    
+  },
+  updated() { 
+    // console.log(this.$route)
+  },
+  beforeDestroy() {
+    this.removeLocalStorage()
+  },
+  methods: {
+
+  }
+}
+</script>
+
 <style lang="less">
 @import './assets/css/hnstyle.css';
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */

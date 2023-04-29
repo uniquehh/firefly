@@ -1,10 +1,108 @@
 {
   "id": "3390002",
-  "name": "列表布局",
-  "font_family": "my-icons",
-  "css_prefix_text": "my-icon-",
+  "name": "hn-admin-v2",
+  "font_family": "element-icons",
+  "css_prefix_text": "el-icon-",
   "description": "",
   "glyphs": [
+    {
+      "icon_id": "5799986",
+      "name": "人工派单",
+      "font_class": "yunliankeji-",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "657478",
+      "name": "短信",
+      "font_class": "duanxin",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "838507",
+      "name": "勾",
+      "font_class": "gou",
+      "unicode": "e881",
+      "unicode_decimal": 59521
+    },
+    {
+      "icon_id": "1471596",
+      "name": "customer",
+      "font_class": "customer",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "7567773",
+      "name": "24gl-phoneLoudspeaker",
+      "font_class": "24gl-phoneLoudspeaker",
+      "unicode": "e94f",
+      "unicode_decimal": 59727
+    },
+    {
+      "icon_id": "8783520",
+      "name": "刷新",
+      "font_class": "dibudaohanglan-",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "9748080",
+      "name": "酒店",
+      "font_class": "jiudian",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "14349780",
+      "name": "提交",
+      "font_class": "tijiao",
+      "unicode": "e75b",
+      "unicode_decimal": 59227
+    },
+    {
+      "icon_id": "17592039",
+      "name": "数据字典-剪影",
+      "font_class": "shujuzidian-jianying",
+      "unicode": "e705",
+      "unicode_decimal": 59141
+    },
+    {
+      "icon_id": "3978413",
+      "name": "权限设置",
+      "font_class": "quanxianshezhi",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "5022485",
+      "name": "账号管理",
+      "font_class": "zhanghaoguanli",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "8288897",
+      "name": "医院",
+      "font_class": "yiyuan",
+      "unicode": "e859",
+      "unicode_decimal": 59481
+    },
+    {
+      "icon_id": "8802668",
+      "name": "权限",
+      "font_class": "quanxian",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "10056222",
+      "name": "医院",
+      "font_class": "yiyuan1",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
     {
       "icon_id": "2076286",
       "name": " 订单 已成功",

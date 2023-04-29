@@ -2,6 +2,10 @@ import request from './myAxios';
 import vm from '@/main';
 
 const methods = {
+  // 关闭网页后需要清除的缓存
+  removeLocalStorage(){
+    localStorage.removeItem('chinaArea')
+  },
   // 退出登录
   loginOut(req=true){
     // req--是否走接口得退出登录
@@ -23,25 +27,33 @@ const methods = {
   request,
   //路由跳转
   hnRouterPush(par) {
+    let curr = vm.$route.path
     if (typeof par == 'object'&& par.hasOwnProperty('query')) {
+      if(curr==par.path)return;
       vm.$router.push({ path:par.path,query:par.query})
     } else if (typeof par == 'object' && par.hasOwnProperty('params')) {
+      if(curr==par.path)return;
       vm.$router.push({ path:par.path,params:par.params})
     } else if (typeof par == 'string') {
+      if(curr==par)return;
       vm.$router.push(par)
     } else {
-      methods.hnMsg("函数参数处理错误",'info')
+      vm.$toast("函数参数处理错误")
     }
   },
   hnRouterRep(par) {
+    let curr = vm.$route.path
     if (typeof par == 'object'&& par.hasOwnProperty('query')) {
+      if(curr==par.path)return;
       vm.$router.replace({ path:par.path,query:par.query})
     } else if (typeof par == 'object' && par.hasOwnProperty('params')) {
+      if(curr==par.path)return;
       vm.$router.replace({ path:par.path,params:par.params})
     } else if (typeof par == 'string') {
+      if(curr==par)return;
       vm.$router.replace(par)
     } else {
-      methods.hnMsg("函数参数处理错误",'info')
+      vm.$toast("函数参数处理错误")
     }
   },
   hnRouterBack() {
@@ -55,18 +67,27 @@ const methods = {
       return false;
     }
   },
+  // 校验对象内的值是否为空
+  // obj 为要校验的表单对象，rules为规则，格式为array<object> 例如：[{{key:'customName',msg:"请输入客户姓名"}}]
+  // key 为校验字段，msg为检验失败的提示
+  formValidate(obj,rules){
+    let arr = Object.keys(obj)
+    for(let i=0;i<arr.length;i++){
+      if(methods.isEmpty(obj[arr[i]])){
+        vm.$toast(rules.find(items=>items.key==arr[i]).msg)
+        return false
+      }
+    }
+  },
   // 获取全国省市区数据
   getChinaAreaList(par={}){
     // level-0 表示查询省级数据，level-1表示市级--默认查省级
-    let obj = {level:"0"}
+    let obj = {level:0}
     par = Object.assign(obj,par)
     return new Promise((rs,rj) => {
       methods.request('/chinaArea/getChinaAreaList',par,'post').then((res) => {
         if (res.code == 0) {
           if(par.level=='0'){ //只存省级数据
-            res.data.forEach(item=>{
-              item.child = []
-            })
             window.localStorage.setItem('chinaArea',JSON.stringify(res.data))
           }
           rs(res.data)

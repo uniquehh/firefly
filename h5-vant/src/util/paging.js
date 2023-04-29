@@ -3,48 +3,40 @@ import methods from './methods';
 export class Paging {
 	_path = "";
 	_page = 0;
-	_pageSize = 10;
+	_total = 0;
+	_limit = 20;
 	_noMore = false;
 	_list = [];
 	_params = {};
+	_keyword = "";
+	_method = "";
 	
-	constructor(path,params = {}){
+	constructor(path,params = {},method){
 		this._path = path
 		this._params = params
+		this._method = method?method:'get'
 	}
 	
-  getData() {
-    if(this._noMore)return;
-    this._page++
-    let obj = { page: this._page, pageSize: this._pageSize }
-    return methods.request(this._path, Object.assign(obj, this._params), "get").then((res) => {
-      // if(res.success){
-      //   if (res.data.rows.length < this._pageSize) this._noMore = true;
-      //   this._list.push(...res.data.rows);
-      // }
-      console.log(res,7535777777)
+  exec() {
+		this._page++
+    let obj = { page: this._page, limit: this._limit }
+		return methods.request(this._path, Object.assign(obj,this._params),this._method).then((res) => {
+      if(res.code==0){
+        if (this._page==1) this._total = res.total;
+        this._list.push(...res.data);
+
+				// console.log(this._list,88888)
+				return res.data
+      }
     })
 
 
-		// return new Promise((rs,rj)=>{
-		// 	if(this._noMore)return;
-		// 	this._page++
-		// 	methods.request(this._path,
-    //     Object.assign({ page: this._page, pageSize: this._pageSize }, this._params),
-    //   "get",
-		// 	(res)=>{
-		// 		if(res.success){
-		// 			if (res.data.rows.length < this._pageSize) this._noMore = true;
-		// 			this._list.push(...res.data.rows);
-		// 		}
-		// 	})
-		// })
 	}
 	
-	reset(){
-		this._page = 0
-		this._noMore = false
-	}
+	// reset(){
+	// 	this._page = 0
+	// 	this._noMore = false
+	// }
 	
 }
 

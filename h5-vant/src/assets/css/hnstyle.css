@@ -75,3 +75,25 @@
 .hn-bblistir-text{
   margin-bottom: 5px;
 }
+
+/* 客户列表 */
+.hn-khlc-item{
+  padding: 5px 0;
+}
+.hn-khlci-bg{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+}
+.hn-khlci-left{
+  display: flex;
+  align-items: center;
+}
+.hn-tip{
+  color: #666;
+}
+.hn-mrr10{
+  margin-right: 10px;
+}

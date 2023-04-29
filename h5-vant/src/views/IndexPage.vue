@@ -10,7 +10,7 @@
       <van-tabbar-item to="/gongNeng" icon="apps-o">
         功能
       </van-tabbar-item>
-      <van-tabbar-item  color="#409EFF">
+      <van-tabbar-item to="/baoBei" color="#409EFF">
         <span>派单</span>
         <template #icon>
           <!-- 自定义突起图标样式 -->
@@ -46,7 +46,7 @@ export default {
     this.hnRouterPush('/gongNeng')
   },
   mounted() {
-
+    this.getChinaAreaList()
   },
 };
 </script>

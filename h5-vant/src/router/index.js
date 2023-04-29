@@ -31,6 +31,11 @@ const routes = [
     component: () => import('@/views/keHu.vue')
   },
   {
+    path: '/keHuInfo',
+    name: 'keHuInfo',
+    component: () => import('@/views/keHuInfo.vue')
+  },
+  {
     path: '/chengDan',
     name: 'chengDan',
     component: () => import('@/views/chengDan.vue')
