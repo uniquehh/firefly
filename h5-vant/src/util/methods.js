@@ -61,7 +61,8 @@ const methods = {
   },
   // 是否为空
   isEmpty(str) {
-    if (str == '' || str == null || str == undefined || JSON.stringify(str) == '[]' || JSON.stringify(str) == '{}') {
+    if(typeof str === 'string') str = str.replace(/\s+/g,'');
+    if (str === '' || str === null || str === undefined || JSON.stringify(str) === '[]' || JSON.stringify(str) === '{}') {
       return true;
     } else {
       return false;
@@ -72,12 +73,19 @@ const methods = {
   // key 为校验字段，msg为检验失败的提示
   formValidate(obj,rules){
     let arr = Object.keys(obj)
+    let emptys = [] //记录校验不通过的字段错误提示msg
     for(let i=0;i<arr.length;i++){
       if(methods.isEmpty(obj[arr[i]])){
-        vm.$toast(rules.find(items=>items.key==arr[i]).msg)
-        return false
+        emptys.push(rules.find(items=>items.key==arr[i]).msg)
       }
     }
+    if(emptys.length){
+      vm.$toast(emptys[0])
+      return false
+    }else{
+      return true
+    }
+    
   },
   // 获取全国省市区数据
   getChinaAreaList(par={}){

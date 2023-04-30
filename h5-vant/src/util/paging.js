@@ -6,9 +6,9 @@ export class Paging {
 	_total = 0;
 	_limit = 20;
 	_noMore = false;
+	_load = false;
 	_list = [];
 	_params = {};
-	_keyword = "";
 	_method = "";
 	
 	constructor(path,params = {},method){
@@ -18,11 +18,16 @@ export class Paging {
 	}
 	
   exec() {
+		if(this._noMore)return;
+		if(this._load)return;
 		this._page++
+		this._load = true
     let obj = { page: this._page, limit: this._limit }
 		return methods.request(this._path, Object.assign(obj,this._params),this._method).then((res) => {
+			this._load = false
       if(res.code==0){
         if (this._page==1) this._total = res.total;
+				if(this._page>=1&&res.data.length<this._limit) this._noMore = true;
         this._list.push(...res.data);
 
 				// console.log(this._list,88888)
@@ -33,10 +38,13 @@ export class Paging {
 
 	}
 	
-	// reset(){
-	// 	this._page = 0
-	// 	this._noMore = false
-	// }
+	reset(){
+		this._page = 0
+		this._noMore = false
+		this._params = {}
+		this._list = []
+		this._total = 0
+	}
 	
 }
 

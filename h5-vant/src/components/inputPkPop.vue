@@ -11,7 +11,7 @@
         <van-icon name="arrow" size="15" />
       </div>
     </div>
-    <van-popup v-model="show" round position="bottom">
+    <van-popup get-container="#app" v-model="show" round position="bottom">
       <van-picker
         show-toolbar
         :columns="data"
@@ -58,6 +58,10 @@ export default {
     }
   },
   methods: {
+    // 重置选择得数据
+    reset(){
+      this.selectVal = ""
+    },
     // picker 确认
     onConfirm(value) {
       // console.log(value)

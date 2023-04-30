@@ -91,9 +91,131 @@
   display: flex;
   align-items: center;
 }
+.hn-khlcili-name{
+  display: flex;
+  align-items: center;
+}
 .hn-tip{
   color: #666;
 }
 .hn-mrr10{
   margin-right: 10px;
+}
+.hn-mrr5{
+  margin-right: 5px;
+}
+.hn-sline12{
+  display: inline-block;
+  height: 12px;
+  border-left: 1px solid #333;
+  margin: 0 5px;
+}
+
+/* 客户详情 */
+.hn-khi-head{
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #ebedf0;
+}
+.hn-khih-tag{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #1989FA;
+  color: white;
+}
+.hn-khihi-item{
+  padding: 5px 0;
+}
+.hn-mrb5{
+  margin-bottom: 5px;
+}
+.hn-mrb10{
+  margin-bottom: 10px;
+}
+
+.hn-khic-info{
+  padding: 5px 0;
+}
+.hn-khici-item{
+  display: flex;
+  background-color: white;
+  padding: 5px 10px;
+}
+.hn-khicii-th{
+  white-space: nowrap;
+  width: 72px;
+  flex-shrink: 0;
+}
+.hn-khicii-td{
+  word-wrap: break-word;
+}
+.hn-add-iconbox{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1989FA;
+  color: white;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 150px;
+  right: 50px;
+}
+.hn-gjpop-main{
+  padding: 30px 20px;
+  width: 300px;
+  max-height: 440px;
+  overflow-y:auto;
+}
+.hn-bdb{
+  border-bottom: 1px solid #ebedf0;
+}
+.hn-flex-jcbe{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.hn-khicd-info{
+  flex: 1;
+}
+
+/* 日历容器样式 */
+.hn-rl-main{
+  height: 400px;
+}
+.hn-mycal-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hn-mycal-ctime{
+  margin: 0 40px;
+  opacity: 0;
+  white-space: nowrap;
+}
+.hn-mycal-lyear{
+  margin-right: 20px;
+}
+.hn-mycal-ryear{
+  margin-left: 20px;
+}
+.hn-mycal-footer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hn-mycalf-cancel{
+  display: inline-block;
+  padding: 10px;
+}
+.hn-mycalf-confirm{
+  display: inline-block;
+  padding: 10px;
+  color: #1989FA;
 }

@@ -8,11 +8,7 @@
       <div class="hn-inputc-right">
         <div class="hn-inputcr-plhd" v-show="isEmpty(selectVals)">{{ placeholder }}</div>
         <div class="hn-inputcr-vals" v-show="!isEmpty(selectVals)">
-          <div class="hn-inputcr-tag" v-for="(item,index) in selectVals" :key="index">
-            <van-tag round closeable size="samll" type="primary" @close="delYiYuan(index)">
-              {{ item.name }}
-            </van-tag>
-          </div>
+          {{ selectVals.name }}
         </div>
         <van-icon name="arrow" size="15" />
       </div>
@@ -59,7 +55,7 @@ export default {
         show: false,//是否显示picker
         loading:false,//是否显示加载状态
       },
-      selectVals: [],//picker确认选择的值
+      selectVals: {},//picker确认选择的医院
       historyCols:[0,0,0],
     }
   },
@@ -70,7 +66,7 @@ export default {
   methods: {
     // 重置选择得数据
     reset(){
-      this.selectVals = []
+      this.selectVals = {}
     },
     // 获取省级地区数据
     async getProviceArea(){
@@ -135,14 +131,9 @@ export default {
         return
       }
       // console.log(values, ind)
-      this.selectVals.push(values[2])
-      this.$emit('selectYiYuan',this.selectVals)
+      this.selectVals = values[2]
+      this.$emit('selectYYDX',this.selectVals)
       this.peiZhi.show = false
-    },
-    // 删除已选择得医院
-    delYiYuan(ind){
-      this.selectVals.splice(ind,1)
-      this.$emit('selectYiYuan',this.selectVals)
     },
 
   }
@@ -150,11 +141,10 @@ export default {
 </script>
 
 <style scoped>
-.hn-inputcr-tag{
-  padding: 4px;
-  display: inline-block;
-}
 .hn-inputcr-vals{
-  width: 220px;
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>

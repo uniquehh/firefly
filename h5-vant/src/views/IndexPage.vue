@@ -4,7 +4,7 @@
     <topNav :showLeftArrow="false" navTitle="OA"></topNav>
 
     <router-view></router-view>
-
+    <myCalendar :required="false" label="下次跟进时间" placeholder="请选择下次跟进时间"></myCalendar>
     <!-- 底部tabbar -->
     <van-tabbar route v-model="tabActive">
       <van-tabbar-item to="/gongNeng" icon="apps-o">
@@ -30,13 +30,13 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import myCalendar from '@/components/myCalendar.vue'
 export default {
-  computed: {
-
-  },
+  components:{myCalendar},
   data() {
     return {
       tabActive: 0,
+
     };
   },
   methods: {
@@ -46,8 +46,10 @@ export default {
     this.hnRouterPush('/gongNeng')
   },
   mounted() {
-    this.getChinaAreaList()
+    if(!localStorage.getItem('chinaArea'))this.getChinaAreaList();
+    
   },
+
 };
 </script>
 

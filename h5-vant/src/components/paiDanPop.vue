@@ -1,24 +1,18 @@
 <template>
-  <div class="page">
+  <van-popup get-container="#app" v-model="pdPopShow" closeable round position="center">
     <div class="hn-baobei-main">
-      <topNav navTitle="报备"></topNav>
-      <!-- 表单区域 -->
-      <div class="hn-bb-form">
-        <inputPkPop label="来源" valkey="dictName" @selectVal="selectLY" :data="laiYuan" placeholder="请选择客户来源"></inputPkPop>
+      <div class="hn-bb-form hn-mrb10">
+        <inputPkPop label="来源" ref="lyPop" valkey="dictName" @selectVal="selectLY" :data="laiYuan" placeholder="请选择客户来源"></inputPkPop>
         <van-field label="姓名" v-model="paiDanForm.customName" required placeholder="请输入姓名" />
-        <inputPkPop label="性别" :data="sex" @selectVal="selectSex" placeholder="请选择客户性别"></inputPkPop>
-        <inputPkPop label="跟进状态" emitval="text" @selectVal="selectStatus" :data="gjStatus" placeholder="请选择跟进状态"></inputPkPop>
+        <inputPkPop label="性别" ref="sexPop" :data="sex" @selectVal="selectSex" placeholder="请选择客户性别"></inputPkPop>
+        <inputPkPop label="跟进状态" ref="gjstPop" emitval="text" @selectVal="selectStatus" :data="gjStatus" placeholder="请选择跟进状态"></inputPkPop>
         <selectYiYuan label="医院" @selectYiYuan="selectYiYuan" placeholder="请选择医院"></selectYiYuan>
-        <!-- <selectTime label="时间" @selectTime="selectTime" placeholder="请选择时间"></selectTime> -->
         <van-field label="电话" v-model="paiDanForm.phone" required placeholder="请输入电话" />
         <van-field label="项目" v-model="paiDanForm.project" required placeholder="请输入项目" />
-        <!-- <van-field label="备注" v-model="paiDanForm.customName" placeholder="请输入备注" /> -->
       </div>
-      <div class="hn-btn-fixed">
-        <van-button size="small" @click="confirmPaiDan" block type="info">派单</van-button>
-      </div>
+      <van-button size="small" @click="confirmPaiDan" block type="info">派单</van-button>
     </div>
-  </div>
+  </van-popup>
 </template>
 
 <script>
@@ -29,6 +23,7 @@ export default {
   components:{selectYiYuan,selectTime},
   data() {
     return {
+      pdPopShow:false,
       laiYuan:[],
       sex:[
         {text:'女',id:0},
@@ -56,6 +51,23 @@ export default {
     this.getKeHuLaiYuan()
   },
   methods: {
+    open(){
+      this.pdPopShow = true
+      this.$nextTick(()=>{
+        this.$refs.lyPop.reset()
+        this.$refs.sexPop.reset()
+        this.$refs.gjstPop.reset()
+      })
+      this.paiDanForm = {
+        "dictId": "",
+        "customName": "",
+        "gender": "",
+        "followStatus": "",
+        "hospitalIdList": [],
+        "phone": "",
+        "project": ""
+      }
+    },
     // 提交派单
     confirmPaiDan(){
       let rules = [
@@ -67,14 +79,12 @@ export default {
         {key:'phone',msg:"请输入客户电话"},
         {key:'project',msg:"请输入项目"},
       ]
-      // console.log(this.paiDanForm)
+      console.log(this.paiDanForm)
       if(this.formValidate(this.paiDanForm,rules)){
         this.request("/dispatch/addDispatch",this.paiDanForm,'post').then((res)=>{
           if(res.code==0){
             this.$toast('派单成功')
-            setTimeout(() => {
-              this.hnRouterPush('/baoBeiList')
-            }, 1500);
+            this.pdPopShow = false
           }
         })
       }
@@ -116,6 +126,9 @@ export default {
 </script>
 <style scoped>
 .hn-baobei-main{
-  padding-bottom: 50px;
+  padding: 30px 20px;
+  width: 300px;
+  max-height: 440px;
+  overflow-y:auto;
 }
 </style>

@@ -13,7 +13,7 @@
         <van-icon name="arrow" size="15" />
       </div>
     </div>
-    <van-popup v-model="peiZhi.show" round position="bottom">
+    <van-popup v-model="peiZhi.show" round get-container="#app" position="bottom">
       <van-datetime-picker
         v-model="currentDate"
         type="date"
@@ -40,30 +40,13 @@ export default {
     },
 
   },
-  watch: {
-    meta: {
-      deep: true,
-      immediate: true,
-      handler(val) {
-        if (this.meta) {
-          this.peiZhi = Object.assign(this.peiZhi, val)
-        }
-      },
-    }
-  },
   data() {
     return {
       peiZhi: {
-        //picker数据
-        data: [
-          {values:[]},
-          {values:[]},
-          {values:[]},
-        ],
-        show: false,//是否显示picker
+        show: false,//是否显示弹窗
         loading:false,//是否显示加载状态
       },
-      selectVal: '',//picker确认选择的值
+      selectVal: '',//确认选择的值
       currentDate: new Date(),
     }
   },
@@ -71,9 +54,8 @@ export default {
 
   },
   methods: {
-    // 滚动事件
-    async columnChange(picker,values){
-
+    reset(){
+      this.selectVal = ''
     },
     // picker 确认
     onConfirm(value) {

@@ -114,6 +114,7 @@ export default {
 .hn-login-inp{
   background-color: rgba(64, 158, 255, 0.6);
   margin-bottom: 20px;
+  border-radius: 4px;
   color: white;
   ::v-deep .van-field__label{
     color: white;
@@ -121,15 +122,19 @@ export default {
   ::v-deep input::placeholder{
     color: rgba(255, 255, 255, 0.9);
   }
+  ::v-deep .van-field__control{
+    color: white;
+  }
 }
 ::v-deep .van-cell::after{
   border-bottom: none;
 }
 
 .hn-lg-btn{
-  background-color: white;
+  background-color: #1989FA;
   border: none;
-  color: #409EFF;
+  color: white;
+  border-radius: 4px;
   font-weight: bold;
 }
 </style>

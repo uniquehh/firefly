@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "630095",
+      "name": "向左箭头",
+      "font_class": "xiangzuojiantou",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "7450597",
+      "name": "左双箭头",
+      "font_class": "zuoshuangjiantou",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "7450660",
+      "name": "右双箭头",
+      "font_class": "youshuangjiantou",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
       "icon_id": "5799986",
       "name": "人工派单",
       "font_class": "yunliankeji-",
@@ -186,13 +207,6 @@
       "font_class": "xingxing",
       "unicode": "e60d",
       "unicode_decimal": 58893
-    },
-    {
-      "icon_id": "145491",
-      "name": "箭头",
-      "font_class": "jiantou",
-      "unicode": "e662",
-      "unicode_decimal": 58978
     },
     {
       "icon_id": "278744",
