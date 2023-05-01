@@ -101,7 +101,7 @@
             <van-field label="跟进内容" v-model="gjform.content" required placeholder="请输入跟进内容" />
           </div>
           <div class="hn-khlc-item hn-bdb">
-            <selectTime ref="gjTimePop" :required="false" label="下次跟进时间" @selectTime="selectGJTime" placeholder="请选择下次跟进时间"></selectTime>
+            <myCalendar ref="gjTimePop" :required="false" label="下次跟进时间" @selectTime="selectGJTime" placeholder="请选择下次跟进时间"></myCalendar>
           </div>
           <van-button size="small" @click="confirmGJ" block type="info">提交</van-button>
         </div>
@@ -119,7 +119,7 @@
             <van-field label="金额" v-model="cdform.price" required placeholder="请输入金额" />
           </div>
           <div class="hn-khlc-item hn-bdb">
-            <selectTime ref="cdTimePop" label="成单时间" @selectTime="selectCDTime" placeholder="请选择成单时间"></selectTime>
+            <myCalendar ref="cdTimePop" label="成单时间" @selectTime="selectCDTime" placeholder="请选择成单时间"></myCalendar>
           </div>
           <van-button size="small" @click="confirmCD" block type="info">提交</van-button>
         </div>
@@ -135,10 +135,10 @@
 </template>
 <script>
 import paiDanPop from '@/components/paiDanPop.vue'
-import selectTime from '@/components/selectTime.vue'
+import myCalendar from '@/components/myCalendar.vue'
 import selectYYRadio from '@/components/selectYYRadio.vue'
 export default {
-  components:{paiDanPop,selectTime,selectYYRadio},
+  components:{paiDanPop,myCalendar,selectYYRadio},
   data() {
     return {
       activeTag:'报备',//激活得tag标题
@@ -172,6 +172,7 @@ export default {
       ]
       // console.log(this.cdform)
       if(this.formValidate(this.cdform,rules)){
+        console.log(this.cdform)
         // this.request("/dispatch/addDispatch",this.paiDanForm,'post').then((res)=>{
         //   if(res.code==0){
         //     this.$toast('提交成功')
@@ -187,7 +188,8 @@ export default {
     },
     // 选择成单时间
     selectCDTime(e){
-      this.cdform.time = e
+      // console.log(e)
+      this.cdform.time = e.replace(/\//g,'-')
     },
     // 提交跟进
     confirmGJ(){
@@ -201,7 +203,8 @@ export default {
     },
     // 选择跟进时间
     selectGJTime(e){
-      this.gjform.gjTime = e
+      // console.log(e)
+      this.gjform.gjTime = e.replace(/\//g,'-')
     },
     // 页面加号点击事件
     addData(){

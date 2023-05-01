@@ -136,6 +136,27 @@ const methods = {
       })
     })
   },
+  // 传入时间对象格式化为时间字符串
+  formatTime(date){
+    let year = date.getFullYear()
+    let mm = date.getMonth()+1
+    let dd = date.getDate()
+    mm = mm<10?'0'+mm:mm
+    dd = dd<10?'0'+dd:dd
+    return {
+      htime:year + '-' + mm + '-' + dd,
+      xtime:year + '/' + mm + '/' + dd,
+    }
+  },
+  // 传入时间字符串 返回时间对象 传入的时间字符串只能包含年月日
+  unFormatTime(str){
+    let arr = []
+    str.includes('-')?arr = str.split('-'):arr = str.split('/')
+    let year = Number(arr[0])
+    let mm = arr[1][0]=='0'?Number(arr[1][1]):Number(arr[1])
+    let dd = arr[2][0]=='0'?Number(arr[2][1]):Number(arr[2])
+    return new Date(year,mm-1,dd)
+  },
 
 
   

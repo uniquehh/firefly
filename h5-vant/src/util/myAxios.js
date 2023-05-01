@@ -39,9 +39,8 @@ axiosInstance.interceptors.response.use((res) => {
     if (res.data.code == -1) {
       vm.$toast(res.data.data.errMsg)
     }
-    if(res.data.code==20001){
-      vm.$toast(res.data.data.errMsg)
-      methods.loginOut()
+    if(res.data.data.errCode==20001){
+      methods.loginOut(false)
     }
 
     

@@ -56,5 +56,11 @@ th, td {
   color: #333;
   box-sizing: border-box;
 }
+.van-popover--light{
+  left: 230px !important;
+}
+.van-popover[data-popper-placement=bottom] .van-popover__arrow{
+  left: 85%;
+}
 
 </style>

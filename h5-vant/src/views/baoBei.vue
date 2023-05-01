@@ -9,7 +9,7 @@
         <inputPkPop label="性别" :data="sex" @selectVal="selectSex" placeholder="请选择客户性别"></inputPkPop>
         <inputPkPop label="跟进状态" emitval="text" @selectVal="selectStatus" :data="gjStatus" placeholder="请选择跟进状态"></inputPkPop>
         <selectYiYuan label="医院" @selectYiYuan="selectYiYuan" placeholder="请选择医院"></selectYiYuan>
-        <!-- <selectTime label="时间" @selectTime="selectTime" placeholder="请选择时间"></selectTime> -->
+        <!-- <myCalendar :required="false" label="下次跟进时间" @selectTime="selectTime" placeholder="请选择下次跟进时间"></myCalendar> -->
         <van-field label="电话" v-model="paiDanForm.phone" required placeholder="请输入电话" />
         <van-field label="项目" v-model="paiDanForm.project" required placeholder="请输入项目" />
         <!-- <van-field label="备注" v-model="paiDanForm.customName" placeholder="请输入备注" /> -->
@@ -23,10 +23,10 @@
 
 <script>
 import selectYiYuan from '@/components/selectYiYuan.vue'
-import selectTime from '@/components/selectTime.vue'
+import myCalendar from '@/components/myCalendar.vue'
 
 export default {
-  components:{selectYiYuan,selectTime},
+  components:{selectYiYuan,myCalendar},
   data() {
     return {
       laiYuan:[],

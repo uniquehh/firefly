@@ -17,10 +17,9 @@
 
 <script>
 import selectYiYuan from '@/components/selectYiYuan.vue'
-import selectTime from '@/components/selectTime.vue'
 
 export default {
-  components:{selectYiYuan,selectTime},
+  components:{selectYiYuan},
   data() {
     return {
       pdPopShow:false,
